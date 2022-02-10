@@ -1,0 +1,18 @@
+ErrorDocument 404 /oop_social/404.php
+
+
+Header always set X-XSS-Protection "1; mode=block"
+Header always set x-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+
+Header  unset X-Powered-By
+
+
+# Disable directory browsing 
+Options -Indexes
+
+# Deny access to .htaccess
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>

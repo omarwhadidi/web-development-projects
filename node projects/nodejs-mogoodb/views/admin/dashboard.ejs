@@ -1,0 +1,104 @@
+<%- include('includes/header.inc.ejs') %>
+
+<div class="container-fluid gedf-wrapper">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="h5">Welcome Admin</div>
+                    <div class="h7 text-muted">Fullname : </div>
+                    <div class="h7">
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="h6 text-muted">Followers</div>
+                        <div class="h5">5.2342</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="h6 text-muted">Following</div>
+                        <div class="h5">6758</div>
+                    </li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 gedf-main">
+
+
+
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="card gedf-card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+            <div class="card gedf-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div>
+  
+
+       <h3>The list of users  and their Details :</h3>
+        <table>";
+       <tr><th align='left'>user ID </th><th>UserName </th><th> Full Name </th><th>email </th><th>Gender </th><th>CLient IP </th><th>Regstatus </th><th>Permissions </th><th>Change Status </th><th>Change permissions </th><th>Delete User </th></tr>
+
+        
+       <% for (let index = 0; index < data.length; index++) { %>
+            
+            <tr>
+                <td><%= data[index].id ; %></td>
+                <td><%= data[index].username ; %></td>
+                <td><%= data[index].userid.firstname ; %> <%= data[index].userid.lastname ; %></td>
+                <td><%= data[index].userid.email ; %></td>
+                <td><%= data[index].userid.gender ; %></td>
+                <td><%= data[index].userid.clientip ; %></td>
+                <td><%= data[index].userid.regstatus ; %></td>
+                
+                <td><%= data[index].role ; %></td>
+                <td><form action="/DeactivateUser" method='POST' ><input type='hidden' name='userid' value='<%= data[index].userid._id ; %>'/>
+                       <button type='submit' class='alert alert-danger'>Deactivate Account</button> 
+                    </form>
+                    <form action="/ActivateUser" method='POST' ><input type='hidden' name='userid' value='<%= data[index].userid._id  ; %>'/>
+                        <button type='submit' class='alert alert-success' style='width:100%'>Activate Account</button> 
+                    </form></td>
+                <td><form action="/DowngradeUser" method='POST' ><input type='hidden' name='username' value='<%= data[index].username ; %>'/>
+                       <button type='submit' class='alert alert-danger'>Downgrade to User</button> 
+                    </form>
+                    <form action="/UpgradeUser" method='POST' ><input type='hidden' name='username' value='<%= data[index].username ; %>'/>
+                        <button type='submit' class='alert alert-success' style='width:100%'>Make Moderator</button> 
+                    </form></td>
+                <td><form action="/DeleteUser" method='POST' ><input type='hidden' name='userid' value='<%= data[index].userid._id ; %>'/>
+                    <button type='submit' class='alert alert-danger' style='width:100%'>Delete User</button> 
+                </form></td>
+
+                </tr>
+          <%  } %>
+
+        </table>;
+        <hr>;
+
+         
+
+    
+</div>	
+<%- include('includes/footer.inc.ejs') %>

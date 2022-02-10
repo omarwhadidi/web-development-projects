@@ -1,0 +1,395 @@
+* {
+	box-sizing:border-box;
+	
+}
+body {
+
+	background-color: #2E3740;
+    color: #435160;
+    font-family: "Open Sans", sans-serif;
+}
+							/* header style start */
+header {
+	height:60px;
+	
+
+
+}
+header .logo {
+	margin-left: 10%;
+    font-family: 'times new roman';
+    color:#E4324C;
+    font-size: 2.5em;
+    padding-top: 1%;
+    text-transform: capitalize;
+    text-shadow:0 10px 7px #435160;
+    -webkit-text-shadow:0 10px 7px#435160;
+    -o-text-shadow:0 10px 7px#435160;
+    -moz-text-shadow:0 10px 7px #435160;
+
+}
+@media (max-width:767px) {    /* for mobiles */ 
+	header .logo {
+		text-align: center; 
+		margin: auto;
+
+	}
+
+}
+							/* main style start */
+
+
+@media (max-width:767px) {    /* for mobiles */		
+
+	main section {display:none;}
+
+	main aside {
+		width:90%  !important;
+		float:none !important;
+		margin:auto;
+
+	}
+	main aside .content > p{ 
+		margin-left:0%;
+		font-size:1em !important;
+	}
+	main aside  h2{ 
+		
+		font-size: 2em !important;
+	}
+
+
+
+}					
+main {
+	height:525px;
+
+
+}
+									/* section style start*/
+main section{
+	height:100%;
+	width:60%;
+	float:left;
+
+}
+#pic{
+	font-size: 18em;
+    font-weight: 800;
+    color: 435160;
+    text-align: center;
+    margin: 15% 5% 2% 20%;
+
+}
+main section i{
+	font-size:12em;
+	font-weight:800;
+	color:435160;
+	text-align:center;
+
+}
+.typed{
+	font-size:2em;
+	font-weight:800;
+	color:435160;
+	
+
+}
+.kalam {
+	margin-left:20%;
+}
+main section:after{
+	content: '' ;
+	display:table;
+	clear:left;
+}
+									/* aside style start*/
+main aside {
+	height:100%;
+	width:39%;
+	float:left;
+}
+main .popup_error {
+	margin: 0 auto 6%;
+    width: 95%;
+    background-color: #1FCE6D;
+    
+    color: #fff;
+    line-height: 3em;
+    text-align: center;
+    visibility:hidden;
+    overflow:hidden;
+}
+main aside .content {
+	height:100%;
+	width:80%;
+	margin:2% auto;
+	padding-top:15%;
+	
+}
+#remove-padding {
+	padding-top:9%;
+
+}
+main aside .content > h2 {
+	text-align:center;
+	text-transform:capitalize;
+	font-size:2.5em;
+	font-weight: bold;
+   
+	font-family:'sofia' , cursive;
+	margin-bottom:8%;
+	
+}
+.login-form {
+	width:100%;
+
+}
+.cont {
+	position:relative;
+}
+.log_icon{
+	
+	display:inline-block;
+	position:absolute;
+	top: 9px;
+}
+.error{
+	
+	display:inline-block;
+	position:absolute;
+	top: 9px;
+    left: 94%;
+}
+.checkn{
+	
+	display:inline-block;
+	position:absolute;
+	top: 9px;
+    left: 89%;
+    color:#1FCE6D;
+}
+.pass_icon{
+	
+	display:inline-block;
+	position:absolute;
+    top: 14px;
+}
+.errorp{
+	
+	display:inline-block;
+	position:absolute;
+	top: 14px;
+    left: 94%;
+}
+
+.fa.fa-user{
+	color:#fff;
+	
+}
+
+.login-form input {
+	border:none;
+	outline:none;
+	
+}
+
+
+.login-form input[type="text"] {
+	display:block;
+	background-color:transparent;
+	padding:10px 5px 15px 20px;
+	width:100%;
+	color:#435160;
+	font-size: 1em;
+	color:#fff;
+	border-bottom:1px solid #435160;
+	transition:border 0.4s ease-in-out;
+	
+
+}
+.login-form input[type="text"]::before {
+
+}
+.login-form input[type="text"]:focus {
+
+
+	border-bottom:1px solid #E4324C;
+}
+.login-form input[type="text"]:blur {
+
+
+	border-bottom:1px solid #435160;
+}
+.login-form input[type="email"] {
+	display:block;
+	background-color:transparent;
+	padding:10px 5px 15px 17px;
+	width:100%;
+	color:#435160;
+	font-size: 1em;
+	color:#fff;
+	border-bottom:1px solid #435160;
+	transition:border 0.4s ease-in-out;
+
+}
+.login-form input[type="email"]:focus {
+
+	background-color:transparent;
+	border-bottom:1px solid #E4324C;
+}
+.login-form input[type="email"]:blur {
+
+
+	border-bottom:1px solid #435160;
+}
+.login-form input[type="email"]:active {
+
+	background-color:transparent;
+	border-bottom:1px solid #E4324C;
+}
+
+.login-form input[type="password"] {
+	display:block;
+	background-color:transparent;
+	padding:15px 5px 15px 20px;
+	width:100%;
+	color:#435160;
+	font-size: 1em;
+	border-bottom:1px solid #435160;
+	transition:all 0.4s ease-in-out;
+	
+}
+.login-form input[type="password"]:focus {
+	border-bottom:1px solid #E4324C;
+
+}
+.login-form input[type="password"]:blur {
+
+
+	border-bottom:1px solid #435160;
+}
+::placeholder {
+  color: #435160;
+  text-transform:uppercase;
+  
+}
+.login-form input[type="submit"] {
+	
+	background-color:transparent;
+	text-transform:uppercase;
+	color:#DC6180;
+	padding:10px 5px 10px 5px;
+	width:47%;
+	border:1px solid #DC6180;
+	border-radius:20px;
+	margin-right:3%;
+	transition:all 0.4s ease-in-out;
+    font-weight: 600;
+	animation-fill-mode: both;
+	
+    animation-duration: 1s;
+    
+
+}
+
+.login-form input[type="submit"]:hover{
+	color:#fff;
+	background-color:#DC6180;
+ }
+ .login-form input[type="checkbox"]{
+	
+	background-color:#435160;
+ }
+.login-form .redirect{
+	
+	background-color:transparent;
+	padding:10px 5px 10px 14% ; 
+	width:47%;
+	border:1px solid #DC6180;
+    font-weight: 600;
+    color:#DC6180 !important;
+    display:inline-block;
+	text-transform:uppercase;
+    border-radius:20px;
+	transition:all 0.4s ease-in-out;
+
+}
+
+.login-form .redirect:hover {
+	color:#fff !important;
+	background-color:#DC6180;
+}
+@media (max-width:767px) {    /* for mobiles */
+	.login-form .redirect{ 
+		width:100%;
+		margin-top:3%;
+		padding:10px 5px 10px 40% ;
+	}
+	.lg{ 
+		width:100% !important;
+		margin-left:0 !important;
+		
+	}
+
+}
+
+.login-form #reg_page {
+	
+	background-color:transparent;
+	color:#DC6180;
+	padding:10px 5px 10px 5px;
+	width: 100%;
+    margin: 0;
+	border:1px solid #DC6180;
+    font-weight: 600;
+    text-transform:uppercase;
+    border-radius:20px;
+	transition:all 0.4s ease-in-out;
+
+}
+.login-form #reg_page:hover{
+	color:#fff;
+	background-color:#DC6180;
+}
+
+
+.login-form .remember {
+	margin:8% 2%;
+}
+.login-form .remember label{
+	margin-left:1%;
+	cursor:pointer;
+	text-transform: capitalize;
+	font-size:1.2em;
+}
+
+main aside .content > p{
+	margin-top:5%;
+	margin-left:28%;
+	font-size:1.1em;
+	text-align:left;
+}
+main aside .content  a{
+	text-decoration:none;
+	text-transform:capitalize;
+	color: #435160;
+	transition: color 0.4s ease-in-out;
+}
+main aside .content  a:hover{
+	
+	color: #DC6180;
+}
+
+main aside:after{
+	content: '' ;
+	display:table;
+	clear:left;
+}
+@media (max-width:767px) {    /* for mobiles */
+	 main aside .content > p{
+	 		margin-left:17%;
+	 		}
+
+
+}

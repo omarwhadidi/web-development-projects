@@ -1,0 +1,98 @@
+* Token based authentication vs Session based authentication
+
+Token based authentication is one in which the user state is stored on the client. This has grown to be the preferred mode of authentication for RESTful APIs. In the token based authentication, the user data is encrypted into a JWT (JSON Web Token) with a secret and then sent back to the client.
+The JWT is then stored on the client side mostly localStorage and sent as a header for every subsequent request. The server receives and validates the JWT before proceeding to send a response to the client
+
+Session based authentication is one in which the user state is stored on the server’s memory. When using a session based auth system, the server creates and stores the session data in the server memory when the user logs in and then stores the session Id in a cookie on the user browser.
+The session Id is then sent on subsequent requests to the server and the server compares it with the stored session data and proceeds to process the requested action.
+ 
+“ These 2 methods can be used   interchangeably or together “
+ 
+ Three common approach for transfer of Session Identifier between Browser and Server
+1. Cookie
+2. Hidden Fields
+4. URL
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+/*  3 ways of session Based session Managments
+     1- using cookies (Bad way) 
+        - if (password == data[0].password) {
+                res.setHeader('set-cookie','myID='+data._id)
+                console.log('password match');
+                res.redirect('/home');
+            }
+        - app.get('/home',(req,res) => {
+            if (req.get(cookie)){
+                query.execute(`select * FROM posts `, (err,data) => {
+                    res.render("home.ejs",{data})
+                }) 
+            }else {res.redirect('/')}
+            
+          })
+	- Note : a hacker can put any cookie in his browser and and bypass this method 
+     2- (Moderate way) 
+	- using express session module and save session in server-side
+		in main page 
+			var session = require('express-session')
+	            	app.use(session({
+   		    	    secret :'encryption key here' ,
+   		    	    resave: false ,
+   		            saveUninitialized : true ,
+	        	}))
+		in login,user pages
+			 - if (password == data[0].password) {
+               		       req.session.myID = data[0].id
+                   	       req.session.username = data[0].username
+                	       res.redirect('/home');
+            		   }
+        		- app.get('/home',(req,res) => {
+            		     if (req.session.myID){
+				let sessiondata = req.session
+                		query.execute(`select * FROM posts `, (err,data) => {
+                    		    res.render("home.ejs",{data,sessiondata})
+                		}) 
+           		     }else {res.redirect('/')}
+          		  })
+        - app.get('/home',(req,res) => {
+            if (req.get(cookie)){
+                query.execute(`select * FROM posts `, (err,data) => {
+                    res.render("home.ejs",{data})
+                }) 
+            }else {res.redirect('/')}
+            
+          })
+     3- (best way) 
+	- using express session module and save session in the database
+		in main page 
+			var Mongoose = require('mongoose');
+			var session = require('express-session')
+			var MongoDBStore = require('connect-mongodb-session')(session);
+			var store = new MongoDBStore ({
+  		            uri : 'mongodb://localhost:27017/dbname',  // same uri as the one used to connect to mongodb
+    			    collection : 'mySessions'  // name of the collection that will store the sessions
+ 			})
+	            	app.use(session({
+   		    	    secret :'encryption key here' ,
+   		    	    resave: false ,
+   		            saveUninitialized : true ,
+			    store
+	        	}))
+		in login,user pages
+			 - if (password == data[0].password) {
+               		       req.session.myID = data[0].id
+                   	       req.session.username = data[0].username
+                	       res.redirect('/home');
+            		   }
+        		- app.get('/home',(req,res) => {
+            		     if (req.session.myID){
+				let sessiondata = req.session
+                		query.execute(`select * FROM posts `, (err,data) => {
+                    		    res.render("home.ejs",{data,sessiondata})
+                		}) 
+           		     }else {res.redirect('/')}
+          		  })
+
+*/
