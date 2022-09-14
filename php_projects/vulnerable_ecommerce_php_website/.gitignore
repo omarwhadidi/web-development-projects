@@ -1,0 +1,28 @@
+################################################################################
+####### Ignored files are usually build artifacts and machine generated 
+####### files that can be derived from your repository source or should 
+####### otherwise not be committed. Some common examples are:
+#######
+####### * dependency caches, such as the contents of /node_modules or /packages
+####### * compiled code, such as .o, .pyc, and .class files
+####### * build output directories, such as /bin, /out, or /target
+####### * files generated at runtime, such as .log, .lock, or .tmp
+####### * hidden system files, such as .DS_Store or Thumbs.db
+####### * personal IDE config files, such as .idea/workspace.xml
+################################################################################
+
+
+# For example, a Node JS gitignore might look like the following:
+
+node_modules/
+build/
+npm-debug.log
+.env
+.env.test
+.env.production
+.DS_Store
+.npm
+.eslintcache
+logs/
+*.log
+npm-debug.log*
