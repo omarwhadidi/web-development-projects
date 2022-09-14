@@ -165,7 +165,7 @@ class UpdateContr extends Update {
 
 	Private function UploadPic(){
 
-		$target_dir = "../public/assets/uploads/users";
+		$target_dir = "../public/assets/uploads/users/";
 		$target_file = $target_dir . basename($this->ProfilePicture["name"]);
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
